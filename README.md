@@ -2,4 +2,4 @@
 
 ## Indice
  - [Introduzione](./Introduzione.md)
- - [Design Patterns](./Design\ Patterns.md)
+ - [Design Patterns](./DesignPatterns.md)
