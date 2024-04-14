@@ -1,5 +1,5 @@
 # Factory Method
-```merm
+```mermaid
 classDiagram
 	class Product
 	<<interface>> Product
