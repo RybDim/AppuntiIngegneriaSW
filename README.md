@@ -2,4 +2,5 @@
 
 ## Indice
  - [Introduzione](./Introduzione.md)
+ - [Refactoring](./Refactoring.md)
  - [Design Patterns](./DesignPatterns.md)
