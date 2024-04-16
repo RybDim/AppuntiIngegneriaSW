@@ -9,49 +9,19 @@ I ruoli stabiliti dalla soluzione dei factory method sono:
 - **Product**: è il ruolo dell'interfaccia comune di tutti gli oggetti che possono essere istanziati dal client.
 - **ConcreteProduct**: è il ruolo che svolge la classe che implementa l'interfaccia *Product*.
 - **Creator**: predispone il punto di richiesta dell'istanza da parte del client ma rimanda alle sottoclassi la decisione di quale istanza creare. Praticamente riceve una richiesta di creazione di un *Product* attraverso il metodo non implementato `factoryMethod()` ma lascia decidere alle sue sottoclassi che tipo di *ConcreteProduct* istanziare.
-- **ConcreteCreator**: la sottoclasse di *Creator* che decide il tipo di istanza da creare attraverso l'implementazione del metodo `factoryMethod()` che ritorna un *ConcreteProduct*.
-```mermaid
-classDiagram
-	class Product
-	<<interface>> Product
-	class Client
-	class ConcreteProductA
-	class ConcreteProductB
-	class Creator
-	Creator: +factoryMethod() Product
-	Creator: +operation()
-	class ConcreteCreator
-	ConcreteCreator: +factoryMethod()
-	Product <-- Client
-	Product <-- Creator
-	Product <|.. ConcreteProductA
-	Product <|.. ConcreteProductB
-	ConcreteProductA <-- ConcreteCreator
-	ConcreteProductB <-- ConcreteCreator
-	Creator <|-- ConcreteCreator
-```
-```mermaid
-sequenceDiagram
-	activate Client
-	Client->>ConcreteCreator : operation()
-	activate ConcreteCreator
-	ConcreteCreator->>ConcreteCreator : factoryMethod()
-	ConcreteCreator->>ConcreteProductA : create
-	ConcreteCreator-->>ConcreteCreator : cp
-	ConcreteCreator-->Client : cp
-	deactivate Client
-	deactivate ConcreteCreator
-	activate Client
-	activate ConcreteProductA
-	Client->>ConcreteProductA : request()
-	ConcreteProductA->>Client : ""
-	deactivate Client
-	deactivate ConcreteProductA 
-```
+- **ConcreteCreator**: la sottoclasse di *Creator* che decide il tipo di istanza da creare attraverso l'implementazione del metodo `factoryMethod()` che ritorna un *ConcreteProduct*. Questa classe sarà l'unica che conoscerà le imlpementazioni di *Concreteproduct*.
 
+---
+### Diagramma UML delle classi
 
+![[umlClassFacctoryMethod.png]]
 
+---
+### Diagramma di sequenza
 
+![[umlSequenceFactoryMethod.png]]
+
+--- 
 
 
 
