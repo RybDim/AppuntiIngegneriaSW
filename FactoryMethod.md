@@ -14,12 +14,12 @@ I ruoli stabiliti dalla soluzione dei factory method sono:
 ---
 ### Diagramma UML delle classi
 
-![[umlClassFacctoryMethod.png]]
+![Diagramma UML delle classi](./images/umlClassFacctoryMethod.png)
 
 ---
 ### Diagramma di sequenza
 
-![[umlSequenceFactoryMethod.png]]
+![Diagramma di sequenza](./images/umlSequenceFactoryMethod.png)
 
 --- 
 
