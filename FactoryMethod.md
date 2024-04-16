@@ -38,7 +38,7 @@ sequenceDiagram
 	ConcreteCreator->>ConcreteCreator : factoryMethod()
 	ConcreteCreator->>ConcreteProductA : create
 	ConcreteCreator-->>ConcreteCreator : cp
-	ConcreteProductA-->Client : cp
+	ConcreteCreator-->Client : cp
 	deactivate Client
 	deactivate ConcreteCreator
 	activate Client
