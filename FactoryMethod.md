@@ -21,16 +21,102 @@ I ruoli stabiliti dalla soluzione dei factory method sono:
 
 ![Diagramma di sequenza](./images/umlSequenceFactoryMethod.png)
 
+## Varianti
+- I ruoli di *ConcreteCreator* e *Creator* vengono svolti dalla stessa classe come nell'esempio a seuguire.
+- Si dichiara il `factoryMethod()` come `static` in modo da permettere al client di richiamarlo sulla classe *Creator* e non su una sua istanza.
+- Si implementa il `factoryMethod()` in modo che prenda in input un certo parametro che permetta al client di suggerire il tipo di classe da istanziare.
+- Il `factoryMethod()` potrebbe utilizzare dei costrutti che vanno sotto il nome di **Riflessione Computazionale**. Questi sono meccanismi che permettono di scrivere codice che ha al suo interno ragionamento sul codice stesso. Ad esempio con il metodo statico `forName()` della classe `Class` è possibile ottenere una classe a partire da una stringa uguale al nome della classe che si vuole istanziare.
+
+### Esempio riflessione computazionale
+```java
+try {
+	Class<?> cls = Class.forName("Studente"); // Se esiste una classe che ha nome Studente, Class prenderà il tipo di Studente
+	Constructor<?> cnstr = cls.getConstructor(new Class[] {}); // Ritorna il costruttore della classe Studente
+	return (IStudente) cnstr.newInstance(); // Ritorna una nuova istanza di Studente
+}
+catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
+InvocationTargetException | NoSuchMethodException | SecurityException |
+ClassNotFoundException e) {
+	e.printStackTrace();
+}
+```
 --- 
 
+## Conseguenze
+Come conseguenze dell'applicazione del factory method il codice delle classi dell'applicazione conosce solo l'interfaccia *Product* e può lavorare con qualsiasi ConcreteProduct che sono facilmente intercambiambili.
 
+## Dependency Injection
+Potrebbe capitare l'istanza di una classe che svolge il ruolo di *ConcreteProduct* abbia bisogno di lavorare con istanze di altre classi e che quindi ha delle dipendenze. Un buon modo di far conoscere al *ConcreteProduct* le classi da cui dipende è passandogliele attraverso il suo costruttore. In questo modo le classi da cui il *ConcreteProduct* dipende gli vengono "iniettate" al momento della sua creazione.
 
+La tecnica del dependency injection permette di separare la costruzione delle istanze dal loro uso
 
+[Esempio dependency injection](https://www.dmi.unict.it/tramonta/se/oop/appEditor.html)
+## Esempio
+```java
+/* La classe IStudente svolge il ruolo di Product*/
+public interface IStudente {
+	public void nuovoEsame(String m, int v);
+	public float getMedia();
+}
+```
 
+```java
+/* Studente prende il ruolo di uno dei ConcreteProduct che implementa Product */
+public class Studente implements IStudente {
+	private List<Esame> esami = new ArrayList<>();
+	
+	public void nuovoEsame(String m, int v) {
+		Esame e = new Esame(m, v);
+		esami.add(e);
+	}
+	
+	public float getMedia() {
+		if (esami.isEmpty()) return 0;
+		float sum = 0;
+		for (Esame e : esami) sum += e.getVoto();
+		return sum / esami.size();
+	}
+}
+```
 
+```java
+/* Sospeso prende il ruolo di uno dei ConcreteProduct che implementa Product */
+public class Sospeso implements IStudente {
+	private float media;
+	
+	public Sospeso(float m) {
+		media = m;
+	}
+	
+	public void nuovoEsame(String m, int v) {
+		System.out.println("Non e' possibile sostenere esami");
+	}
+	
+	public float getMedia() {
+		return media;
+	}
+}
+```
 
+```java
+/* Crea i concrete product. Notare come StCreator svolge il ruolo sia di ConcreteCreator. Questa è una variante ammissibile del FactoryMethod in cui viene omesso il Creator ed implementato solo il ConcreteCreator.*/
+public class StCreator{
+	private static boolean a = true;
+	
+	public static IStudente getStudente(){
+		if(a)
+			return new Studente();
+		return new Sospeso(0);
+	}
+}
+```
 
+```java
+public class Client {
+	public void registra(){
+		IStudente s = StCreator.getStudente();
+		s.nuovoEsame("Maths", 8);
+	}
 
-
-
-
+}
+```

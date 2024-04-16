@@ -1,4 +1,4 @@
-# Design pattern
+# Design patterns
 I **design pattern** sono strutture software per un piccolo numero di classi che descrivono soluzioni testate e di successo a problemi ricorrenti nella progettazione. Essi specificano le diverse classi che devono essere implementate per la risoluzione del problema e le loro relazioni. Esistono un'enorme quantità di design pattern. 
 
 Ricapitolando un design pattern descrive un problema di progettazione ricorrente che si incontra in specifici contesti e presenta una soluzione collaudata genereica ma specializzabile.
@@ -19,4 +19,4 @@ I design pattern vengono suddivisi in categorie in base al loro scopo finale:
 
 - [Singleton](./Singleton.md)
 - [Factory Method](./FactoryMethod.md)
-- 
+- [Abstract Factory](./AbstractFactory.md)
