@@ -120,3 +120,27 @@ public class Client {
 
 }
 ```
+
+## Object Pool
+Un'altra tecnica che si sposa bene con il factory method è l'**object pool**. Un object pool non è altro che un deposito di istanza già create che possono essere usate dalle classi client su richiesta. Quando una classe client ha finito di utilizzare l'istanza questa viene reintrodotta dentro il pool, il suo stato resettato e quando non ci sono più istanze dentro il pool non ne vengono create di nuove. L'idea di base è quella di riutilizzare certi oggetti istanziati preventivamente.
+
+Il riutiizzo delle istanza è utile ad esempio quando l'istanza è onerosa da creare e quindi pesa eccessivamente sulla computazione a runtime.
+### Esempio
+```java
+import java.util.ArrayList;
+import java.util.List;
+// CreatorPool è un ConcreteCreator e implementa un Object Pool
+public class CreatorPool {
+	private List<Shape> pool = new ArrayList<>();
+	// metodo factory che ritorna un oggetto prelevato dal pool
+	public Shape getShape() {
+		if (pool.size() > 0)
+			return pool.remove(0);
+		return new Circle();
+	}
+	// inserisce un oggetto nel pool
+	public void releaseShape(Shape s) {
+		pool.add(s);
+	}
+}
+```

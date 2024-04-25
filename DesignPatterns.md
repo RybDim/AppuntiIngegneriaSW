@@ -19,4 +19,8 @@ I design pattern vengono suddivisi in categorie in base al loro scopo finale:
 
 - [Singleton](./Singleton.md)
 - [Factory Method](./FactoryMethod.md)
+- [Adapter](./Adapter.md)
 - [Abstract Factory](./AbstractFactory.md)
+- [Facade](./Facade.md)
+- [State](./State.md)
+- [Observer](./Observer.md)

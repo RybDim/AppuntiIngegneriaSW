@@ -75,3 +75,72 @@ Predicate<Integer> positive = x -> x >= 0;
 Si può definire una classe che funge da interfaccia funzionale tramite l'annotazione `@FunctionalInterface` che indica al compilatore che l'interfaccia ha e deve avere un solo metodo astratto. Se aggiungiamo un altro metodo astratto all'interfaccia, il compilatore genererà un errore.
 
 *Predicate* definisce il metodo `test()` che prende in ingresso un parametro di tipo *Object*.
+### Metodo Reduce
+`reduce(T identity, BinaryOperator<T> accumulator)` è un motodo dell'interfaccia `Stream` che prende in input due parametri: un valore dello stesso tipo degli elementi nello stream e un'operazione binaria. `reduce()` è un'**operazione terminale**.
+
+`reduce()` serve quando si vuole passare da un insieme di valori ad un unico valore. Ad esempio il metodo `count()` è una sorta di reduce perché riduce l'insieme di valori in un unico valore. Ad esempio, per ottenere la somma dei valori di uno stream scriveremo
+```java
+reduce(0, (accum, v) -> accum + v);
+```
+`reduce()` applica la funzione di accumulazione `(accum, v)` ,che prende in input un valore iniziale di accumulazione `accum` e un valore dello stream `v`, a tutti gli elementi dello stream e ritorna un risultato dello stesso tipo dei valori nello stream. Lo `0` rappresenta il valore iniziale dell'accumulatore `accum`. 
+```java
+public class Pagamenti {
+	private List<Float> import = new ArrayList<>();
+	public float calcolaSomma(){
+		return importi.stream()
+					  .reduce(0f, Float::sum);
+	}
+}
+```
+Tramite un overload del metodo possiamo anche non specificare il valore iniziale dell'accumulatore che prenderà il valore del primo elemento dello stream. Dato che lo stream potrebbe essere vuoto e non sarebbe possibile assegnare un valore all'accumulatore bisogna memorizzare il risultato in un'istanza di tipo `Optional`.
+```java
+Optional<Integer> sum = list.stream().reduce(Integer::sum);
+if(sum.isPresent())
+	System.out.println("sum = " + sum.get());
+```
+### Metodo Map
+`map(Function<T, R> mapper)` è un metodo che prende in ingresso una funzione che mappa ogni valore di ciascun elemento dello stream in un altro valore applicando la funzione ad ogni elemento dello stream. `map()`, quindi, restituisce uno stream i cui valori sono il risultato dell'applicazione della funzione su ciascuno degli elementi dello stream iniziale. Dato che restituisce uno stream, `map()` è un'**operazione intermedia**. Ad esempio `map(x -> x * 2)` restituisce uno stream in cui ciascun elemento è il doppio dell'elemento nello stream originale.
+```java
+List<Persona> amici = Arrays.asList(
+	new Persona("Saro", 24), new Persona("Taro", 21),
+	new Persona("Ian", 19), new Persona("Al", 16));
+
+// map restituisce uno stream contenente le eta di ciascuna istanza di Persona, lo stream viene dato in input a reduce che calcola la somma di tutti gli elementi
+int somma = amici.stream()
+				 .map(Persona::getEta)
+				 .reduce(0, Integer::sum);
+```
+## Stateless-Stateful
+Le operazioni come `map()` e `filter()` si dicono operazioni **stateless** perché non mantengono uno stato interno, semplicemente prendono un elemento dello stream e restituiscono zero oppure un risultato per ciascuno degli elementi.
+
+Le operazioni come `sorted()` e `distinct()`, invece, devono conoscere necessariamente tutti gli elementi dello stream per poter essere eseguiti, di conseguenza si dicono essere operazioni **stateful**.
+
+## Iterate
+`iterate()` è un metodo che permette di generare uno *Stream* a partire da una funzione. `iterate()` restituisce uno stream infinito e ordinato dato dall’esecuzione iterativa di una funzione `f` applicata inizialmente ad un elemento seme,
+quindi produce uno stream di `seme, f(seme), f(f(seme))` ecc.
+
+Per troncare la lunghezza dello stream ad un valore fissato si usa il metodo
+`limit()` che prende in input un valore.
+```java
+Stream.iterate(2, n -> n * 2)
+	  .limit(10)
+	  .forEach(System.out::println);
+```
+Nell’esempio il metodo `iterate(2, n -> n * 2)` genera uno stream infinito di potenze di 2 (2, 4, 8, 16...). Il metodo `limit(10)` tronca lo stream ai primi 10 elementi e il metodo `.forEach(System.out::println)` applica ad ogni elemento la funzione passata in input, in questo caso stampa gli elementi.
+## Generate
+Il metodo generate() permette di produrre uno stream infinito di valori tramite
+una funzione di tipo Supplier ovvero che fornisce un valore. Il metodo non
+applica una funzione per ogni elemento dello stream.
+```java
+Stream.generate(() -> Math.round(Math.random() * 10))
+	  .limit(5)
+	  .forEach(System.out::println());
+
+Stream.generate(Math::random)
+	  .limit(5)
+	  .forEach(System.out::println));
+```
+L’esempio genera uno stream contenenti numeri casuali tra 0 e 10 e lo tronca
+a 5 elementi.
+
+La differenza sostanziale tar il metodo `iterate()` e `generate()` è che il primo prende in input il risultato dell'iterazione precedente mentre il secondo genera ogni volta un elemento in maniera indipendente dall'iterazione precedente.
