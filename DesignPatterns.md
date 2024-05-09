@@ -26,4 +26,9 @@ I design pattern vengono suddivisi in categorie in base al loro scopo finale:
 - [Observer](./Observer.md)
 - [Composite](./Composite.md)
 - [Decorator](./Decorator.md)
-- 
+- [Chain of Responsability](./ChainOfResponsability.md)
+- [Mediator](./Mediator.md)
+- [Prototype](./Prototype.md)
+- [Command](./Command.md)
+- [Bridge](./Bridge.md)
+
