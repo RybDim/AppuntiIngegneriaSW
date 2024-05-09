@@ -15,10 +15,10 @@ Una delle principali caratteristiche del sofwtare è la sua **modificabilità**.
 La valutazione della qualità del software tiene conto di diversi criteri tra cui la **correttezza**. Un software si dice essere corretto se soddisfa tutti i requisiti richiesti dal cliente nei tempi e nei costi stabiliti e passa correttamente la fase di testing.
 
 Altri criteri da cui dipende la qualità del software sono:
-- **Efficienza** --> fa riferimento alla capacità del software di svolgere la propria funzione usando in modo appropriato (senza sprechi) le risorse hardware su cui gira.
-- **Manuntenibilità**--> possibilità, dopo la release del software, di apportare modifiche minimali al software facilmente e in un tempo ragionevolmente breve.
-- **Dependability** (sicurezza e affidabilità) --> sicurezza nel senso di **security** indica che i dati memorizzati dal software sono protetti dal mondo esterno e dagli utenti che interagiscono con esso, sicurezza nel senso di **safety** coinvolge la protezione del sistema fisico (hardware) e delle vite umane (per software usati in ambiti in cui vite umane dipendono da esso come in aerei, navi, ospedali ecc.). L'affidabilità garantisce che il sistema software non abbia frequenti episodi di failure.
-- **Usabilità** --> stabilisce quanto il software sia semplice ed intuitivo da usare per gli utenti finali.
+- **Efficienza**: fa riferimento alla capacità del software di svolgere la propria funzione usando in modo appropriato (senza sprechi) le risorse hardware su cui gira.
+- **Manuntenibilità**: possibilità, dopo la release del software, di apportare modifiche minimali al software facilmente e in un tempo ragionevolmente breve.
+- **Dependability** (sicurezza e affidabilità): sicurezza nel senso di **security** indica che i dati memorizzati dal software sono protetti dal mondo esterno e dagli utenti che interagiscono con esso, sicurezza nel senso di **safety** coinvolge la protezione del sistema fisico (hardware) e delle vite umane (per software usati in ambiti in cui vite umane dipendono da esso come in aerei, navi, ospedali ecc.). L'affidabilità garantisce che il sistema software non abbia frequenti episodi di failure.
+- **Usabilità**: stabilisce quanto il software sia semplice ed intuitivo da usare per gli utenti finali.
 
 ## Miglioramenti sul codice
 Per poter scrivere buon codice ed evitare il cosiddetto spghetti code, cioè codice che contiene metodi estremamente lunghi, senza parametri e che usano variabili globali, è importante seguire delle linee guida. Bisogna utilizzare correttamente la programmazzione ad oggetti, ogni metodo deve svolgere una piccola funzione in modo da rendderla riutilizzabile dove serve. 
