@@ -1,0 +1,13 @@
+# Fase di test
+Il collaudo del software o testing è un procedimento che fa parte del ciclo di vita del software e che permette di individuare eventuali errori di correttezza, completezza e affidabilità delle componenti. Questa fase consiste nell'eseguire il software da collaudare e valutare la sua correttezza e se rispetta i requisiti.
+## Malfunzionamenti e difetti
+È importante distinguere i malfunzionamenti del software e i difetti del software.
+- **Malfunzionamenti**: un malfunzionamento è l'accumulazione di diversi difetti che portano ad comportamento scorretto del software con una risultante perdita di informazioni in moduli critici rendendo il sistema non responsivo. Il malfunzionamento viene di solito scoperto dagli utenti finali che non posson usufruire del servizio offerto dal software. Il software avrà una certa probabilità di malfunzionamento. La soglia di probabilità di malfunzionamento accettabile dipende dal tipo di applicazione. Applicazioni "life-critical" (quelli usati in ambiti in cui vite umane dipendono da esso) devono avere probabilità di malfunzionamento estremamente basse.
+- **Difetto**: un difetto è una sequenza di istruzioni, sorgenti o eseguibili che, quando eseguita con particolari dati in input, genera un malfunzionamento. Detto in parole povere si ha un malfunzionamento del software solo quando viene eseguito il codice che contiene un difetto e solo se i dati in input sono tali da evidenziare l'errore. Si hanno diversi tipi difetti:
+	- **difetti di specifiche**: la descrizione delle specifiche del software è ambigua, contraddittoria oppure imprecisa.
+	- **difetti di design**: le componenti del software e le loro interazioni sono progettate non correttamente.
+	- **difetti di codice**: sono errori dovuti ad una sbagliata implementazione del codice. È difficile distinguere difetti di design e difetti di codice. Errori nel codice sorgente possono anche essere rilevati se il codice viene compilato ed eseguito con particolari compilatori o su particolari piattaforme, per questo motivo è importante testare il software su diverse piattaforme e con diversi compilatori. 
+	- **difetti di test**: errori introdotti nella fase di testing del software.
+Per rilevare il maggior numero possibile di difetti bisogna collaudare esaustivamente il software prevedendo il maggior numero possibile di casi d'uso.
+## Verifica e validazione
+La fase di verifica e validazione serve ad accettare che il software rispecchi i requisiti e che li rispetti nella maniera dovuta. La **verifica** serve a stabilire che il software rispetti i requisiti e le specifiche, quindi ad esempio che non ci siano requisiti mancanti. La **validazione** serve ad accertare che il software dovrebbe fare ciò che l'utente ha realmente richieesto. 

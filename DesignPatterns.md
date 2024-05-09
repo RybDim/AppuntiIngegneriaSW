@@ -24,3 +24,6 @@ I design pattern vengono suddivisi in categorie in base al loro scopo finale:
 - [Facade](./Facade.md)
 - [State](./State.md)
 - [Observer](./Observer.md)
+- [Composite](./Composite.md)
+- [Decorator](./Decorator.md)
+- 
