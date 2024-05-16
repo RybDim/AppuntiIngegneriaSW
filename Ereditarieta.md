@@ -62,7 +62,7 @@ Vediamo un'altro esempio
 public class Account {
 	protected float balance;
 	public void setBalance(float amount) {
-		System.out.println("in account set-balance“);
+		System.out.println("in account set-balance");
 		if (check(amount))
 			balance += amount;
 	}
