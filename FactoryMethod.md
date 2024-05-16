@@ -22,7 +22,7 @@ I ruoli stabiliti dalla soluzione dei factory method sono:
 ![Diagramma di sequenza](./images/umlSequenceFactoryMethod.png)
 
 ## Varianti
-- I ruoli di *ConcreteCreator* e *Creator* vengono svolti dalla stessa classe come nell'esempio a seuguire.
+- I ruoli di *ConcreteCreator* e *Creator* vengono svolti dalla stessa classe come nell'esempio a seguire.
 - Si dichiara il `factoryMethod()` come `static` in modo da permettere al client di richiamarlo sulla classe *Creator* e non su una sua istanza.
 - Si implementa il `factoryMethod()` in modo che prenda in input un certo parametro che permetta al client di suggerire il tipo di classe da istanziare.
 - Il `factoryMethod()` potrebbe utilizzare dei costrutti che vanno sotto il nome di **Riflessione Computazionale**. Questi sono meccanismi che permettono di scrivere codice che ha al suo interno ragionamento sul codice stesso. Ad esempio con il metodo statico `forName()` della classe `Class` è possibile ottenere una classe a partire da una stringa uguale al nome della classe che si vuole istanziare.
