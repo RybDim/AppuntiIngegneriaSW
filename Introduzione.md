@@ -21,7 +21,7 @@ Altri criteri da cui dipende la qualità del software sono:
 - **Usabilità**: stabilisce quanto il software sia semplice ed intuitivo da usare per gli utenti finali.
 
 ## Miglioramenti sul codice
-Per poter scrivere buon codice ed evitare il cosiddetto spghetti code, cioè codice che contiene metodi estremamente lunghi, senza parametri e che usano variabili globali, è importante seguire delle linee guida. Bisogna utilizzare correttamente la programmazzione ad oggetti, ogni metodo deve svolgere una piccola funzione in modo da rendderla riutilizzabile dove serve. 
+Per poter scrivere buon codice ed evitare il cosiddetto spghetti code, cioè codice che contiene metodi estremamente lunghi, senza parametri e che usano variabili globali, è importante seguire delle linee guida. Bisogna utilizzare correttamente la programmazzione ad oggetti, ogni metodo deve svolgere una piccola funzione in modo da renderla riutilizzabile dove serve. 
 
 È utile usare il paradigma **command e query**. I metodi query sono metodi che restituiscono un risultato e non modificano lo stato del sistema mentre i metodi command non restituiscono nulla ma modificano lo stato del sistema. Di conseguenza le chiamate ai metodi command devono essere attenzionate ed fatte con cognizione di causa per evitare modifiche non volute al sistema.
 

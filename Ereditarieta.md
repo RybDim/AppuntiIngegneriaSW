@@ -1,5 +1,5 @@
 # Ereditarietà
-L'ereditarietà nella programmazione ad oggetti rende possibile definire una nuova classe che eredita attributi e metodi di una classe esistente definendo allo stesso tempo attributi e metodi propri. Consideriamo una classe *Persona* che ha attributi *nome* e *cognome*. Se definissimo una classe *Studente* potremmo dichiarare nuovamente gli attributi *nome* e *cognome* e aggiungere altri attributi come *matricola*, *voti*, ecc. oppure, seguendo una buona programmazione ad oggetti facciamo usiamo l'ereditarietà. Diremo che la classe *Studente* eredita la classe *Persona* seguendo la sintassi
+L'ereditarietà nella programmazione ad oggetti rende possibile definire una nuova classe che eredita attributi e metodi di una classe esistente definendo allo stesso tempo attributi e metodi propri. Consideriamo una classe *Persona* che ha attributi *nome* e *cognome*. Se definissimo una classe *Studente* potremmo dichiarare nuovamente gli attributi *nome* e *cognome* e aggiungere altri attributi come *matricola*, *voti*, ecc. oppure, seguendo una buona programmazione ad oggetti usiamo l'ereditarietà. Diremo che la classe *Studente* eredita la classe *Persona* seguendo la sintassi
 ```java
 public class Studente extends Persona {}
 ```
@@ -23,7 +23,7 @@ public class Classe implements Interfaccia {/*implementazione dei metodi elencat
 ```
 
 ## Classi astratte
-Le classi astratte sono classi parzialmente implementate, contengono cioè alcuni metodi implementati e altri che non hanno implementazione (definiti tramite la keyword `abstract`). Un metodo `abstract` può essere invocato da altri metodi della classe e forza le sottoclassi ad implementare il metodo. Le classi astratte, così come le interfacce, non può essere istanziata.
+Le classi astratte sono classi parzialmente implementate, contengono cioè alcuni metodi implementati e altri che non hanno implementazione (definiti tramite la keyword `abstract`). Un metodo `abstract` può essere invocato da altri metodi della classe e forza le sottoclassi ad implementare il metodo. Le classi astratte, così come le interfacce, non possono essere istanziate.
 Un esempio di classe astratta:
 ```java
 public abstract class Libro {
@@ -38,7 +38,7 @@ public abstract class Libro {
 ## Compatibilità fra tipi
 L'ereditarietà permette di definire una classificazione dei tipi. Una sottoclasse, infatti, è un **sottotipo** compatibile con la sua superclasse. Un modo semplice per vederlo è considerare che una sottoclasse è anche ciò che è la superclasse. Ad esempio una sottoclasse *Studente* è anche la sua superclasse *Persona*.
 
-Questa compatibilità, ovviamente è unidirezionale. Una sottoclasse è compatibile con la sua superclasse ma non il viceversa. *Studente* è necessariamente *Persona* ma *Persona* non è necessariamente anche *Studente*. Grazie a tale compatibilità si può sostituire ogni istanza della superclasse con una istanza della sottoclasse. Ad esempio ogni istanza della classe *Persona* può essere sostiuita da istanze della classe *Studente* perché tutti i metodi e attributi di *Persona* possono essere richiamati da *Studente*.
+Questa compatibilità è unidirezionale. Una sottoclasse è compatibile con la sua superclasse ma non il viceversa. *Studente* è necessariamente *Persona* ma *Persona* non è necessariamente anche *Studente*. Grazie a tale compatibilità si può sostituire ogni istanza della superclasse con una istanza della sottoclasse. Ad esempio ogni istanza della classe *Persona* può essere sostiuita da istanze della classe *Studente* perché tutti i metodi e attributi di *Persona* possono essere richiamati da *Studente*.
 
 ### Late binding e polimorfismo
 ```java
